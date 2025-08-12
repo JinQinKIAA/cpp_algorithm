@@ -1,0 +1,9 @@
+# clangd 配置文件 参考：https://clangd.llvm.org/config.html#showaka
+CompileFlags:                     
+  Remove: -forward-unknown-to-host-compiler # 解决 cuda 报错
+Hover:
+  ShowAKA: Yes
+InlayHints:
+  Enabled: No
+  ParameterNames: No
+  DeducedTypes: No

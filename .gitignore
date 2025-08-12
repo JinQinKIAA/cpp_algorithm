@@ -1,0 +1,8 @@
+/bin/*
+/build/*
+/.cache/*
+/.vscode/*
+*.png
+*.csv
+*.txt
+!CMakeLists.txt
