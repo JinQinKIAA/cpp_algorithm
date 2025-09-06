@@ -1,31 +1,29 @@
-# README
+# C++ 数据结构与算法
 
-### C++命名规范
+### 数组
 
-| **文件**       |                          |
-| -------------------- | ------------------------ |
-| 头文件               | head_file.h              |
-| 源文件               | source_file.cc           |
-| **类型**       |                          |
-| 命名空间             | namespace_name           |
-| 类                   | ClassName                |
-| 结构体               | StructName               |
-| 类型定义 (typedef)   | DefinedType              |
-| 枚举 （类型）        | DefinedEnum              |
-| 类型模板参数         | TemplateParameter        |
-| **常量与宏**   |                          |
-| 普通常量             | CONST_VARIABLE           |
-| 静态变量             | s_static_variable        |
-| 全局变量             | g_global_variable        |
-| 枚举（单独的枚举值） | ENUM_NAME                |
-| 类作用域常量         | CLASS_CONST_VARIABLE     |
-| 命名空间作用域的常量 | NAMESPACE_CONST_VARIABLE |
-| 宏                   | MACRO_NAME               |
-| **变量**       |                          |
-| 普通变量             | normal_variable          |
-| 结构体变量           | member_variable          |
-| 类成员变量           | member_variable          |
-| **函数**       |                          |
-| 普通函数             | common_function()        |
-| 取值函数             | get_member_variable()    |
-| 设值函数             | set_member_variable()    |
+常量数组 
+
+```c++
+int arr[10] //长度为10， 但不能求值 arr[10]
+```
+
+特点: 内存是连续的，带来了一些优点和缺点：
+
+优点:
+
+1. 下标访问 O(1) arr[n] 与查找注意区分，查找复杂度是 O(n)
+2. 末尾位置增加删除元素的时间复杂度是O(1) 指针-- 即可
+3. 访问前后相邻的元素非常容易
+
+缺点:
+
+1. 非末尾元素插入时间复杂度 O(n)
+2. 无序数组查找时间复杂度是 O(n)
+3. 有序数组可以用二分查找，时间复杂度是O(logn)
+
+数组扩容的消耗比较大
+
+---
+
+程序运行后生成一个进程，内存分为 .data, heap, stack,  堆上内存可以自己分配，stack 自动分配释放，.data 的内存整个程序的声明周期都不会被释放。
