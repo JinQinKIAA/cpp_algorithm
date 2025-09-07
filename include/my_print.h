@@ -41,7 +41,7 @@ void print(const T& container) {
 
 inline void Test() {
   {
-    std::cout << "空" << std::endl;
+    std::cout << "empty" << std::endl;
     std::vector<int> v{};
     std::deque<int> d{};
     std::array<int, 0> arr{};
@@ -74,7 +74,7 @@ inline void Test() {
     print(ums);
   }
   {
-    std::cout << "非空" << std::endl;
+    std::cout << "non empty" << std::endl;
     std::vector<int> v{1, 2, 3};
     std::deque<int> d{1, 2, 3};
     std::array<int, 3> arr{1, 2, 3};
@@ -106,7 +106,7 @@ inline void Test() {
     print(us);
     print(ums);
   }
-  std::cout << "测试完毕！" << std::endl;
+  std::cout << "test over!" << std::endl;
 }
 
 }  // namespace my_print

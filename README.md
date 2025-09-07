@@ -26,4 +26,13 @@ int arr[10] //长度为10， 但不能求值 arr[10]
 
 ---
 
-程序运行后生成一个进程，内存分为 .data, heap, stack,  堆上内存可以自己分配，stack 自动分配释放，.data 的内存整个程序的声明周期都不会被释放。
+程序运行后生成一个进程，内存分为 .data, heap, stack,  堆上内存可以自己分配，stack 自动分配释放，.data 的内存整个程序的声明周期都不会被释放。因此要自己控制内存扩容就只能定义在堆上。
+
+msvc以 1.5 倍扩容（即 floor(1.5*capability)），而 linux 是两倍
+
+> [面试题：C++vector的动态扩容，为何是1.5倍或者是2倍_vector扩容1.5倍,2倍区别-CSDN博客](https://blog.csdn.net/qq_44918090/article/details/120583540)
+
+- **vector在push_back以成倍增长可以在均摊后达到O(1)的事件复杂度，相对于增长指定大小的O(n)时间复杂度更好。**
+- **为了防止申请内存的浪费，现在使用较多的有2倍与1.5倍的增长方式，而1.5倍的增长方式可以更好的实现对内存的重复利用。**
+
+![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/de5f27d7c5c32d81da5f14a178f39e7a.png)

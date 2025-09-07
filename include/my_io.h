@@ -228,7 +228,7 @@ namespace my_os {
 
 inline void test() {
   {
-    std::cout << "空" << std::endl;
+    std::cout << "empty" << std::endl;
     std::vector<int> v{};
     std::deque<int> d{};
     std::array<int, 0> arr{};
@@ -260,7 +260,7 @@ inline void test() {
     std::cout << ums << std::endl;
   }
   {
-    std::cout << "非空" << std::endl;
+    std::cout << "not empty" << std::endl;
     std::vector<int> v{1, 2, 3};
     std::deque<int> d{1, 2, 3};
     std::array<int, 3> arr{1, 2, 3};
@@ -292,7 +292,7 @@ inline void test() {
     std::cout << us << std::endl;
     std::cout << ums << std::endl;
   }
-  std::cout << "测试完毕！" << std::endl;
+  std::cout << "test was finished!" << std::endl;
 }
 
 }  // namespace my_os
