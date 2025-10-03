@@ -42,3 +42,67 @@ msvc以 1.5 倍扩容（即 floor(1.5*capability)），而 linux 是两倍
 比较短 20-30 行的算法适合在面试的时候出，因为面试可能没有机会用电脑写比较长的代码。
 
 多刷题，归纳整理解题方法，遇到新题目会快速套 
+
+### 链表
+
+特点: 每一个节点都是在堆内存上独立 new 出来的， 节点内存不连续
+
+优点:
+
+1. 内存利用率高，不需要大块连续的内存
+2. 插入，删除，时间复杂度为 O(1) （删除特定元素需要先找到，加上查找的时间复杂度为 O(n)）
+3. 不需要专门的扩容操作
+
+缺点：
+
+1. 内存占用量大，每个节点除了数据还要存放地址
+2. 节点内存不连续，无法随机访问，访问元素的复杂度为 O(n)
+3. 搜索效率不高，只能从头节点逐节点遍历
+
+感觉就是要关注数据结构的内存特点，以及 【访问，增，删，改，查】 的复杂度
+
+### 
+
+```c++
+struct Node{
+    int data;
+    Node *next;
+}
+```
+
+除了判断末尾节点是否为空时检查 `p->next != nullptr` 其他情况检查 `p != nullptr` 就好    
+
+#### 单链表逆序
+
+```c++
+   void reverse(){
+        if (head->next!=nullptr && head->next->next != nullptr) {
+            std::cout << "test reverse" << std::endl;
+            Node * o = head->next;
+            Node * p = head->next->next;
+            Node * q = head->next->next->next;
+            o->next = nullptr;
+            while (q!=nullptr) {
+                // std::cout << p->data << std::endl;
+                p->next = o;
+                o=p;
+                p=q;
+                q=q->next;
+            }
+            p->next = o;
+            head->next = p;
+        }
+        
+    }
+```
+
+自己实现的第一个版本，时间复杂度应该是 O(n)
+
+结果应该是头插法。。。
+
+```
+```
+
+可以先画一下，搞清楚代码逻辑然后再写代码
+
+对于代码的一些特殊值，边界值要做一些判断，否则程序崩溃，一分都没有
